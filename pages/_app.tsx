@@ -9,7 +9,7 @@ const theme = createMuiTheme({
 function App({ Component, pageProps }: AppProps) {
     return (
         <MuiThemeProvider theme={theme}>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </MuiThemeProvider>
     );
 }

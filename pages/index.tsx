@@ -6,6 +6,11 @@ const Index = () => (
         <Head>
             <title>Classy</title>
             <link rel="icon" href="/favicon.ico" />
+            <meta
+                key="description"
+                name="description"
+                content="Classy categorization"
+            />
         </Head>
         <CssBaseline />
         <Grid
