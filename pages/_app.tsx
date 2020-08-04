@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
-    palette: { type: 'dark' },
     typography: { fontSize: 16 },
 });
 
