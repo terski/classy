@@ -1,4 +1,5 @@
 import {
+    Card,
     CardMedia,
     Container,
     CssBaseline,
@@ -47,18 +48,22 @@ const Index = () => {
                         Generate
                     </Button>
                 </Grid>
-                {/* <Grid item>
-                    <CardMedia image="classcards.png" />
-                </Grid> */}
-                { buckets.map((b) => (
+                <Grid item>
+                    <Card>
+                        <CardMedia image="classcards.png" />
+                    </Card>
+                </Grid>
+                {buckets.map(b => (
                     <Grid item>
                         <TagInput
                             label={b.title}
                             helperText="What will you learn or do?"
-                            dataSource={microTags.filter(t => t.bucket === b.name).map(t => t.value)}
+                            dataSource={microTags
+                                .filter(t => t.bucket === b.name)
+                                .map(t => t.value)}
                         />
                     </Grid>
-                ))}                
+                ))}
             </Grid>
         </AppContainer>
     );
