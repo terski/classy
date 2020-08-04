@@ -1,4 +1,12 @@
-import { Container, CssBaseline, Grid, styled, Typography, Button } from '@material-ui/core';
+import {
+    CardMedia,
+    Container,
+    CssBaseline,
+    Grid,
+    styled,
+    Typography,
+    Button,
+} from '@material-ui/core';
 import Head from 'next/head';
 import TagInput from '../components/tag-input';
 import { microTags } from '../data/microtags';
@@ -9,8 +17,10 @@ const AppContainer = styled(Container)({
 });
 
 const Index = () => {
-    for (var i = 0; i < 10; i++) {
-        console.log(generate());
+    for (var i = 0; i < 12; i++) {
+        setTimeout(function() {
+            console.log(generate());
+        }, 500);
     }
     return (
         <AppContainer maxWidth="sm">
@@ -33,13 +43,16 @@ const Index = () => {
             >
                 <Grid item>
                     <Typography variant="h3">{generate()}</Typography>
-                    <Button variant="contained" color="primary">Generate</Button>
+                    <CardMedia src="/public/classcards.png"></CardMedia>
+                    <Button variant="contained" color="primary">
+                        Generate
+                    </Button>
                 </Grid>
                 <Grid item>
                     <TagInput
                         label="Technique and Content"
                         helperText="What will you learn or do?"
-                        dataSource={[ 'test', 'test', 'test' ]}
+                        dataSource={['test', 'test', 'test']}
                     />
                 </Grid>
             </Grid>

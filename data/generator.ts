@@ -14,15 +14,13 @@ const getTagsOfType = (bucket: string) => {
 // Generators
 const topicForStudent = () => {
     const topics = getTagsOfType('topic');
-    const students = getTagsOfType('targetStudents');
+    const students = getTagsOfType('targetStudent');
 
     return `${pick(topics)} for ${pick(students)}`;
 };
 
 const adjectiveAndTopic = () => {
-    const topics = microTags
-        .filter(t => t.bucket === 'topic')
-        .map(t => t.value);
+    const topics = getTagsOfType('topic');
     const adjectives = microTags
         .filter(t => ['verbalTone', 'visualTone'].includes(t.bucket))
         .map(t => t.value);
@@ -30,12 +28,12 @@ const adjectiveAndTopic = () => {
     return `${pick(adjectives)} ${pick(topics)}`;
 };
 
-const feelingEvokedMediumInLocation = () => {
+const feelingEvokedLocationMedium = () => {
     const feelings = getTagsOfType('feelingEvoked');
-    const media = getTagsOfType('medium');
     const locations = getTagsOfType('location');
+    const media = getTagsOfType('medium');
 
-    return `${pick(feelings)} ${pick(media)} in ${pick(locations)}`;
+    return `${pick(feelings)} ${pick(locations)} ${pick(media)}`;
 };
 
 const verbalToneMediumClassStyle = () => {
@@ -46,8 +44,19 @@ const verbalToneMediumClassStyle = () => {
     return `${pick(tones)} ${pick(media)} ${pick(styles)}`;
 };
 
-const notImplemented = () => {
-    return 'not implemented yet';
+const classesByBackgroundMediumExperts = () => {
+    const backgrounds = getTagsOfType('teacherBackground');
+    const media = getTagsOfType('medium');
+
+    return `${pick(backgrounds)} Experts in ${pick(media)}`;
+};
+
+const visualToneVerbalToneTopic = () => {
+    const visuals = getTagsOfType('visualTone');
+    const feelings = getTagsOfType('feelingEvoked');
+    const topics = getTagsOfType('topic');
+
+    return `${pick(visuals)}, ${pick(feelings)} ${pick(topics)}`;
 };
 
 // Other generators?
@@ -56,8 +65,10 @@ const notImplemented = () => {
 const generators = [
     topicForStudent,
     adjectiveAndTopic,
-    feelingEvokedMediumInLocation,
+    feelingEvokedLocationMedium,
     verbalToneMediumClassStyle,
+    classesByBackgroundMediumExperts,
+    visualToneVerbalToneTopic,
 ];
 
 export const generate = () => {
