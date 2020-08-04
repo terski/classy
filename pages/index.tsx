@@ -18,6 +18,8 @@ const AppContainer = styled(Container)({
 });
 
 const Index = () => {
+    const headline = generate();
+
     for (var i = 0; i < 12; i++) {
         setTimeout(function() {
             console.log(generate());
@@ -43,18 +45,18 @@ const Index = () => {
                 spacing={8}
             >
                 <Grid item>
-                    <Typography variant="h3">{generate()}</Typography>
+                    <Typography variant="h3">{headline}</Typography>
                     <Button variant="contained" color="primary">
                         Generate
                     </Button>
                 </Grid>
                 <Grid item>
                     <Card>
-                        <CardMedia image="classcards.png" />
+                        <CardMedia component="img" image="classcards.png" />
                     </Card>
                 </Grid>
                 {buckets.map(b => (
-                    <Grid item>
+                    <Grid item key={b.title}>
                         <TagInput
                             label={b.title}
                             helperText="What will you learn or do?"
