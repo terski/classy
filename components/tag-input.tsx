@@ -8,7 +8,7 @@ const handleAddChip = (chip) => {
 const TagInput = (props) => {
     return (
             <ChipInput
-                defaultValue={['funny', 'vibrant', '80s']}
+                defaultValue={props.dataSource}
                 fullWidth={true}
                 fullWidthInput={true}
                 onAdd={(chip) => handleAddChip(chip)}

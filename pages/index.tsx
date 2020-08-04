@@ -1,12 +1,15 @@
 import { Container, CssBaseline, Grid, styled } from '@material-ui/core';
 import Head from 'next/head';
 import TagInput from '../components/tag-input';
+import { microTags } from '../data/microtags';
+import { generate } from '../data/generator';
 
 const AppContainer = styled(Container)({
     padding: '2rem 1rem',
 });
 
 const Index = () => {
+    console.log(generate());
     return (
         <AppContainer maxWidth="sm">
             <Head>
@@ -30,6 +33,7 @@ const Index = () => {
                     <TagInput
                         label="Technique and Content"
                         helperText="What will you learn or do?"
+                        dataSource={[... new Set(microTags.map(t => t.bucket))]}
                     />
                 </Grid>
                 <Grid item>
