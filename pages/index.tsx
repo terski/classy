@@ -25,7 +25,7 @@ const Index = () => {
                 justify="flex-start"
                 alignItems="center"
             >
-                <TagInput label="Adjectives" helperText="What tone are you hearing and seeing in this class?" />
+                <div>This is a test</div>
             </Grid>
         </AppContainer>
     );
