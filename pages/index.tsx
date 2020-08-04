@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import Head from 'next/head';
 import TagInput from '../components/tag-input';
-import { microTags } from '../data/microtags';
+import { buckets, microTags } from '../data/microtags';
 import { generate } from '../data/generator';
 
 const AppContainer = styled(Container)({
@@ -43,18 +43,22 @@ const Index = () => {
             >
                 <Grid item>
                     <Typography variant="h3">{generate()}</Typography>
-                    <CardMedia src="/public/classcards.png"></CardMedia>
                     <Button variant="contained" color="primary">
                         Generate
                     </Button>
                 </Grid>
-                <Grid item>
-                    <TagInput
-                        label="Technique and Content"
-                        helperText="What will you learn or do?"
-                        dataSource={['test', 'test', 'test']}
-                    />
-                </Grid>
+                {/* <Grid item>
+                    <CardMedia image="classcards.png" />
+                </Grid> */}
+                { buckets.map((b) => (
+                    <Grid item>
+                        <TagInput
+                            label={b.title}
+                            helperText="What will you learn or do?"
+                            dataSource={microTags.filter(t => t.bucket === b.name).map(t => t.value)}
+                        />
+                    </Grid>
+                ))}                
             </Grid>
         </AppContainer>
     );
