@@ -3,7 +3,7 @@ import Head from 'next/head';
 import TagInput from '../components/tag-input';
 
 const AppContainer = styled(Container)({
-    padding: '2rem 0',
+    padding: '2rem 1rem',
 });
 
 const Index = () => {
@@ -22,10 +22,34 @@ const Index = () => {
             <Grid
                 container
                 direction="column"
-                justify="flex-start"
-                alignItems="center"
+                justify="center"
+                alignItems="stretch"
+                spacing={8}
             >
-                <div>This is a test</div>
+                <Grid item>
+                    <TagInput
+                        label="Technique and Content"
+                        helperText="What will you learn or do?"
+                    />
+                </Grid>
+                <Grid item>
+                    <TagInput
+                        label="Class Mechanics"
+                        helperText="What is the methodology does the class use?"
+                    />
+                </Grid>
+                <Grid item>
+                    <TagInput
+                        label="Demographics"
+                        helperText="Who is this class for? What is the teacher like?"
+                    />
+                </Grid>
+                <Grid item>
+                    <TagInput
+                        label="Adjectives"
+                        helperText="What tone are you hearing and seeing in this class?"
+                    />
+                </Grid>
             </Grid>
         </AppContainer>
     );
