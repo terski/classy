@@ -1,5 +1,4 @@
 import ChipInput from 'material-ui-chip-input';
-import { OutlinedInput, Box } from '@material-ui/core';
 
 const handleAddChip = (chip) => {
     console.log(chip);
