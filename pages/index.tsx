@@ -7,6 +7,7 @@ import {
     styled,
     Typography,
     Button,
+    Box,
 } from '@material-ui/core';
 import Head from 'next/head';
 import TagInput from '../components/tag-input';
@@ -51,8 +52,10 @@ const Index = () => {
                 alignItems="stretch"
                 spacing={8}
             >
-                <Grid item align="center">
-                    <Typography variant="h5">{headline}</Typography>
+                <Grid item>
+                    <Box textAlign="center">
+                        <Typography variant="h5">{headline}</Typography>
+                    </Box>
                 </Grid>
                 <Grid item>
                     <Card>
