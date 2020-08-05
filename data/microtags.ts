@@ -10,20 +10,20 @@ type MicroTag = {
 };
 
 export const buckets: Bucket[] = [
+    { name: 'feelingEvoked', title: 'Feeling Evoked', description: 'How does this class make you feel?' },
+    { name: 'verbalTone', title: 'Verbal Tone', description: 'What are you hearing in the tone of this class?' },
+    { name: 'visualTone', title: 'Visual Tone', description: 'What are you seeing in this class?' },
+    { name: 'targetStudent', title: 'Target Student', description: 'Who is the audience for this class?' },
     { name: 'activities', title: 'Activities', description: 'What will you learn or do?' },
     { name: 'budget', title: 'Budget', description: 'What level of monetory resources does this class require?' },
     { name: 'classStyle', title: 'Class Style', description: '' },
     { name: 'difficulty', title: 'Difficulty', description: 'What level is this class?' },
     { name: 'duration', title: 'Duration', description: 'How much time will it take to do this class?' },
-    { name: 'feelingEvoked', title: 'Feeling Evoked', description: 'How does this class make you feel?' },
     { name: 'location', title: 'Location', description: 'Where are the activities in this class taking place?' },
     { name: 'medium', title: 'Medium', description: 'What will you use to create the output?' },
     { name: 'output', title: 'Output', description: 'What are you going to be able to do after this class?' },
-    { name: 'targetStudent', title: 'Target Student', description: 'Who is the audience for this class?' },
     { name: 'teacherBackground', title: 'Teacher Background', description: 'What is the teacher\'s background?' },
     { name: 'topic', title: 'Topic', description: 'What is the theme of this class?' },
-    { name: 'verbalTone', title: 'Verbal Tone', description: 'What are you hearing in the tone of this class?' },
-    { name: 'visualTone', title: 'Visual Tone', description: 'What are you seeing in this class?' },
 ];
 
 export const microTags: MicroTag[] = [

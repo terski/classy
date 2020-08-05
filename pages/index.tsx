@@ -12,19 +12,26 @@ import Head from 'next/head';
 import TagInput from '../components/tag-input';
 import { buckets, microTags } from '../data/microtags';
 import { generate } from '../data/generator';
+import { useState, useEffect } from 'react';
 
 const AppContainer = styled(Container)({
-    padding: '2rem 1rem',
+    padding: '3rem 1rem',
 });
 
 const Index = () => {
-    const headline = generate();
+    const handleGenerate = () => {
+        setHeadline(generate());
+    };
 
-    for (var i = 0; i < 12; i++) {
-        setTimeout(function() {
-            console.log(generate());
-        }, 500);
-    }
+    const [headline, setHeadline] = useState(generate());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleGenerate();
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <AppContainer maxWidth="sm">
             <Head>
@@ -44,25 +51,31 @@ const Index = () => {
                 alignItems="stretch"
                 spacing={8}
             >
-                <Grid item>
-                    <Typography variant="h3">{headline}</Typography>
-                    <Button variant="contained" color="primary">
-                        Generate
-                    </Button>
+                <Grid item align="center">
+                    <Typography variant="h5">{headline}</Typography>
                 </Grid>
                 <Grid item>
                     <Card>
                         <CardMedia component="img" image="classcards.png" />
                     </Card>
                 </Grid>
-                {buckets.map(b => (
+                <Grid item>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleGenerate}
+                    >
+                        Generate
+                    </Button>
+                </Grid>
+                {buckets.map((b) => (
                     <Grid item key={b.title}>
                         <TagInput
                             label={b.title}
-                            helperText="What will you learn or do?"
+                            helperText={b.description}
                             dataSource={microTags
-                                .filter(t => t.bucket === b.name)
-                                .map(t => t.value)}
+                                .filter((t) => t.bucket === b.name)
+                                .map((t) => t.value)}
                         />
                     </Grid>
                 ))}
